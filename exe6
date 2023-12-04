@@ -1,22 +1,52 @@
 package atividades;
 
+import java.util.Scanner;
+
 public class exe6 {
-public static void main(String[] args) {
+
+        public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Digite uma letra (F ou M): ");
-        char letra = scanner.next().charAt(0);
+        int respostasPositivas = 0;
 
-        // Verifica o gênero
-        if (letra == 'F' || letra == 'f') {
-            System.out.println("Feminino");
-        } else if (letra == 'M' || letra == 'm') {
-            System.out.println("Masculino");
+        System.out.println("Responda às seguintes perguntas com 'Sim' ou 'Não'.");
+        
+        System.out.println("Telefonou para a vítima?");
+        if (scanner.next().equalsIgnoreCase("Sim")) {
+            respostasPositivas++;
+        }
+
+        System.out.println("Esteve no local do crime?");
+        if (scanner.next().equalsIgnoreCase("Sim")) {
+            respostasPositivas++;
+        }
+
+        System.out.println("Mora perto da vítima?");
+        if (scanner.next().equalsIgnoreCase("Sim")) {
+            respostasPositivas++;
+        }
+
+        System.out.println("Devia para a vítima?");
+        if (scanner.next().equalsIgnoreCase("Sim")) {
+            respostasPositivas++;
+        }
+
+        System.out.println("Já trabalhou com a vítima?");
+        if (scanner.next().equalsIgnoreCase("Sim")) {
+            respostasPositivas++;
+        }
+
+      
+        if (respostasPositivas == 2) {
+            System.out.println("Classificação: Suspeita");
+        } else if (respostasPositivas >= 3 && respostasPositivas <= 4) {
+            System.out.println("Classificação: Cúmplice");
+        } else if (respostasPositivas == 5) {
+            System.out.println("Classificação: Assassino");
         } else {
-            System.out.println("Letra inválida. Digite F ou M.");
+            System.out.println("Classificação: Inocente");
         }
 
         scanner.close();
     }
-}
 }
